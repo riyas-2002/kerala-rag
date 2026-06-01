@@ -13,6 +13,6 @@
     }
   ],
   "env": {
-    "NEXT_PUBLIC_API_URL": "@kerala_rag_api_url"
+    "NEXT_PUBLIC_API_URL": "https://kerala-rag-backend.onrender.com"
   }
 }
