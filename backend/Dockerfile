@@ -1,9 +1,5 @@
-# Kerala RAG Backend — Dockerfile
-# Optimized for free hosting (Render, Fly.io, Railway free tiers)
-
 FROM python:3.11-slim
 
-# System dependencies for OCR and document processing
 RUN apt-get update && apt-get install -y --no-install-recommends \
     tesseract-ocr \
     tesseract-ocr-eng \
@@ -15,24 +11,18 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /app
 
-# Install Python dependencies
 COPY requirements.txt .
 
-# Install CPU-only PyTorch first (much smaller than default)
-RUN pip install --no-cache-dir \
-    torch==2.3.0+cpu \
-    torchvision==0.18.0+cpu \
-    --index-url https://download.pytorch.org/whl/cpu
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir torch==2.12.0+cpu \
+        --index-url https://download.pytorch.org/whl/cpu && \
+    pip install --no-cache-dir -r requirements.txt
 
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Pre-download embedding model into image to avoid cold-start delay
+# Pre-download embedding model to avoid cold-start delay
 RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')"
 
-# Copy application code
 COPY . .
 
-# Create data directories
 RUN mkdir -p \
     /data/faiss_index \
     /data/cache \
@@ -45,7 +35,6 @@ RUN mkdir -p \
     /data/kerala_rag/business_maps \
     /data/kerala_rag/metadata
 
-# Environment
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV DOCUMENTS_PATH=/data/kerala_rag

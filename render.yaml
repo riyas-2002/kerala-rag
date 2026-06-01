@@ -2,19 +2,15 @@ services:
   - type: web
     name: kerala-rag-backend
     env: python
-    region: oregon  # Oregon has better free-tier availability
+    region: oregon
     plan: free
     rootDir: backend
-    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    buildCommand: pip install --upgrade pip && pip install torch==2.12.0+cpu --index-url https://download.pytorch.org/whl/cpu && pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT --workers 1
-    
-    # Health check to keep service alive
     healthCheckPath: /health
-    
-    # Environment variables (set in Render dashboard)
     envVars:
       - key: PYTHON_VERSION
-        value: "3.11.0"
+        value: "3.11.9"
       - key: LLM_PROVIDER
         value: groq
       - key: GROQ_MODEL
@@ -41,18 +37,3 @@ services:
         value: "20"
       - key: MAX_UPLOAD_SIZE_MB
         value: "20"
-      # Set these in Render dashboard (not here):
-      # - key: GROQ_API_KEY
-      # - key: HF_API_KEY
-      # - key: ALLOWED_ORIGINS
-
-    # Persistent disk for FAISS index and documents
-    # NOTE: Render free tier does NOT include persistent disk.
-    # Two options:
-    #   1) Use Render paid disk ($7/mo) — recommended for production
-    #   2) Commit your FAISS index to GitHub (works for small indexes)
-    # See README for the GitHub-based persistence strategy.
-    disk:
-      name: kerala-rag-data
-      mountPath: /data
-      sizeGB: 1

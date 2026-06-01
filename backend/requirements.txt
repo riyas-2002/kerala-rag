@@ -9,9 +9,7 @@ numpy==1.26.4
 
 # Embeddings (local, no GPU)
 sentence-transformers==2.7.0
-torch==2.3.0+cpu
-torchvision==0.18.0+cpu
---extra-index-url https://download.pytorch.org/whl/cpu
+# torch installed separately in build command
 
 # Document Processing
 pypdf2==3.0.1
