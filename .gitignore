@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.env
+venv/
+.venv/
+env/
+ENV/
+
+# Node
+node_modules/
+.next/
+.vercel/
+*.local
+npm-debug.log*
+
+# Data (do NOT commit large files; commit index selectively)
+data/cache/
+data/kerala_rag/**/*.pdf
+data/kerala_rag/**/*.docx
+# To commit index: git add data/faiss_index data/faiss_metadata.pkl
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/

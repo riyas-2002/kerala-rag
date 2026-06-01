@@ -1,0 +1,79 @@
+{
+  "bakery": {
+    "licenses": [
+      "Trade License (Local Body / Municipality)",
+      "FSSAI Food Business License (State / Central based on turnover)",
+      "Fire NOC (if commercial kitchen)",
+      "GST Registration (if turnover > ₹20 lakh)",
+      "Shops & Establishments Registration"
+    ],
+    "optional": [
+      "FSSAI Central License (if turnover > ₹20 crore)"
+    ],
+    "departments": [
+      "Local Self-Government Department (Trade License)",
+      "Food Safety and Standards Authority of India (FSSAI)",
+      "Kerala Fire & Rescue Services",
+      "GST Department"
+    ],
+    "timeline_days": "30-60",
+    "approx_fees": "₹5,000 - ₹25,000",
+    "notes": "FSSAI State License required for turnover between ₹12 lakh and ₹20 crore. Central License above that."
+  },
+  "gym_fitness": {
+    "licenses": [
+      "Trade License",
+      "Shops & Establishments Registration",
+      "Fire NOC (if building capacity > 50 persons)",
+      "GST Registration"
+    ],
+    "departments": [
+      "Local Body",
+      "Labour Department (Shops Act)",
+      "Fire & Rescue"
+    ]
+  },
+  "ayurveda_clinic": {
+    "licenses": [
+      "Drug License (Ayurveda Medicines — Form 26D/27D)",
+      "Trade License",
+      "Registration under Clinical Establishments Act",
+      "GST Registration (if applicable)"
+    ],
+    "departments": [
+      "Indian Systems of Medicine (ISM) Department, Kerala",
+      "Local Body",
+      "Ministry of Health (Clinical Establishments)"
+    ],
+    "notes": "Doctor in charge must hold BAMS/BUMS/BSMS degree registered with Kerala Paramedical Council or equivalent."
+  },
+  "textile_shop": {
+    "licenses": [
+      "Trade License",
+      "Shops & Establishments Registration",
+      "GST Registration",
+      "Fire NOC (if showroom > 500 sqft in commercial complex)"
+    ],
+    "departments": [
+      "Local Body",
+      "Labour Department",
+      "GST Department"
+    ]
+  },
+  "cold_storage": {
+    "licenses": [
+      "Pollution Control Board Consent (Consent to Establish + Operate)",
+      "Trade License",
+      "Factory License (if more than 10 workers with power)",
+      "Food Storage License (FSSAI)",
+      "Electrical Safety Certificate"
+    ],
+    "departments": [
+      "Kerala PCB",
+      "Local Body",
+      "Directorate of Factories & Boilers",
+      "FSSAI",
+      "Kerala State Electricity Board (KSEB)"
+    ]
+  }
+}
